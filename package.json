@@ -1,0 +1,27 @@
+{
+  "name": "githubq",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/handshakecompany/gitHubQ.git"
+  },
+  "author": "Hans Schoenburg",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/handshakecompany/gitHubQ/issues"
+  },
+  "homepage": "https://github.com/handshakecompany/gitHubQ#readme",
+  "dependencies": {
+    "bounce": "^1.2.0",
+    "jasmine": "^3.0.0",
+    "pg": "^7.4.1",
+    "request": "^2.83.0",
+    "request-promise": "^4.2.2",
+    "winston": "^2.4.0"
+  }
+}
