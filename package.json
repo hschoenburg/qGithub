@@ -18,10 +18,30 @@
   "homepage": "https://github.com/handshakecompany/gitHubQ#readme",
   "dependencies": {
     "bounce": "^1.2.0",
+    "dotenv": "^5.0.0",
     "jasmine": "^3.0.0",
+    "moment": "^2.20.1",
     "pg": "^7.4.1",
     "request": "^2.83.0",
     "request-promise": "^4.2.2",
     "winston": "^2.4.0"
+  },
+  "standard": {
+    "globals": [
+      "describe",
+      "context",
+      "before",
+      "beforeEach",
+      "after",
+      "afterEach",
+      "it",
+      "xit",
+      "expect",
+      "beforeAll",
+      "jasmine",
+      "spyOn",
+      "Headers",
+      "fetch"
+    ]
   }
 }
