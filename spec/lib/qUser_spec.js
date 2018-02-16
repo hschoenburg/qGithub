@@ -1,29 +1,29 @@
 const subject = require('../../lib/qUser')
 
-const INDEX = 2
+const INDEX = 1
 
 // Refactor this to be recursive?
 const accts = {
-  real: ['hschoenburg', 'mandatoryprogrammer', 'pzb', 'kokubun', 'nfultz'],
-  fake: ['fakehandshake'],
-  thin: ['chrisjj'],
-  tooThin: ['josephpoon'],
+  real: ['hschoenburg', 'mandatoryprogrammer', 'pzb', 'kokubun', 'nfultz', 'nobu', 'cmars', 'spacebaconllc', 'matthew-mcateer', 'maxtaco', 'malgorithms', 'jinyangli', 'akalin', 'cecileboucheron', 'oconnor663', 'mlsteele', 'zapu', 'buoyad', 'songgao', 'zanderz'],
+  fake: ['fakehandshake', 'chrisjj', 'josephpoon'],
   foss_boss: ['chjj']
 }
 
 describe('qUser', () => {
   describe('realScore()', () => {
-    xit('returns true for ALL of the real user accounts', (done) => {
+    it('returns true for ALL of the real user accounts', (done) => {
+      let promises = []
       var i = accts.real.length
-      while (i > -1) {
+      while (i > 0) {
         i--
         var a = accts.real[i]
-        console.log(a)
-        subject.realUser({username: a})
-          .then(real => {
-            expect(real).toBe(true)
-            if (i === 0) { done() }
-          }).catch(e => { throw e })
+        promises.push(subject.realUser({username: a}))
+
+        Promise.all(promises)
+        .then(real => {
+          expect(real.indexOf(false)).toEqual(-1)
+          done()
+        }).catch(e => { throw e })
       }
     })
 
@@ -35,13 +35,22 @@ describe('qUser', () => {
       })
     })
 
-    it('returns false for a thin account', (done) => {
-      subject.realUser({username: accts.thin[INDEX]})
-      .then(real => {
-        expect(real).toEqual(false)
-        done()
-      })
+    it('returns false for ALL of the fake user accounts', (done) => {
+      let promises = []
+      var i = accts.fake.length
+      while (i > 0) {
+        i--
+        var a = accts.fake[i]
+        promises.push(subject.realUser({username: a}))
+
+        Promise.all(promises)
+        .then(fake => {
+          expect(fake.indexOf(true)).toEqual(-1)
+          done()
+        }).catch(e => { throw e })
+      }
     })
+
 
     it('returns false for a fake account', (done) => {
       subject.realUser({username: accts.fake[INDEX]})
@@ -50,18 +59,10 @@ describe('qUser', () => {
         done()
       })
     })
-
-    it('returns false with a toothin account', (done) => {
-      subject.realUser({username: accts.tooThin[INDEX]})
-      .then(real => {
-        expect(real).toBe(false)
-        done()
-      })
-    })
   })
 
   describe('fossScore', () => {
-    xit('returns a 10 when given a legit homie', (done) => {
+    it('returns a 10 when given a legit homie', (done) => {
       done()
     })
   })
