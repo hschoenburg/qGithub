@@ -7,7 +7,6 @@ const repos = {
   thin: ['chrisjj/trackfind', 'chjj/rocksdown', 'hschoenburg/mybitbit', 'spacebaconllc/repoman', 'akalin/gopar', 'zanderz/memcached'],
   fake: ['hschoenburg/ruby', 'fakehandshake/hockeypuck', 'hschoenburg/stellar_utils']
 
-
 }
 
 describe('qRepo', () => {
@@ -31,10 +30,9 @@ describe('qRepo', () => {
       Promise.all(promises)
       .then(real => {
         expect(real.indexOf(false)).toEqual(-1)
-        done() 
+        done()
       }).catch(e => { throw e })
     })
-
 
     it('returns false with a thin repo', (done) => {
       subject.realRepo(repos.thin[INDEX])
@@ -60,7 +58,6 @@ describe('qRepo', () => {
       }).catch(e => { throw e })
     })
 
-
     it('returns false with a fake repo', (done) => {
       subject.realRepo(repos.fake[INDEX])
       .then(fake => {
@@ -79,8 +76,7 @@ describe('qRepo', () => {
       }
       Promise.all(promises)
       .then(fake => {
-
-      console.log(fake)
+        console.log(fake)
         expect(fake.indexOf(true)).toEqual(-1)
         done()
       }).catch(e => { throw e })

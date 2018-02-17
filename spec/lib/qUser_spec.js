@@ -4,27 +4,28 @@ const INDEX = 1
 
 // Refactor this to be recursive?
 const accts = {
-  real: ['hschoenburg', 'mandatoryprogrammer', 'pzb', 'kokubun', 'nfultz', 'nobu', 'cmars', 'spacebaconllc', 'matthew-mcateer', 'maxtaco', 'malgorithms', 'jinyangli', 'akalin', 'cecileboucheron', 'oconnor663', 'mlsteele', 'zapu', 'buoyad', 'songgao', 'zanderz'],
-  fake: ['fakehandshake', 'chrisjj', 'josephpoon'],
-  foss_boss: ['chjj']
+  real: ['hschoenburg', 'mandatoryprogrammer', 'pzb', 'k0kubun', 'nfultz', 'nobu', 'cmars', 'matthew-mcateer', 'maxtaco', 'malgorithms', 'jinyangli', 'akalin', 'cecileboucheron', 'oconnor663', 'mlsteele', 'zapu', 'buoyad', 'songgao', 'zanderz'],
+  fake: ['fakehandshake', 'chrisjj', 'josephpoon']
 }
 
 describe('qUser', () => {
   describe('realScore()', () => {
     it('returns true for ALL of the real user accounts', (done) => {
-      let promises = []
+      let truePromises = []
       var i = accts.real.length
       while (i > 0) {
         i--
         var a = accts.real[i]
-        promises.push(subject.realUser({username: a}))
-
-        Promise.all(promises)
-        .then(real => {
-          expect(real.indexOf(false)).toEqual(-1)
-          done()
-        }).catch(e => { throw e })
+        truePromises.push(subject.realUser({username: a}))
       }
+
+      Promise.all(truePromises)
+      .then(real => {
+        expect(real.indexOf(false)).toEqual(-1)
+        console.log('$$$')
+        // console.log(real)
+        done()
+      }).catch(e => { throw e })
     })
 
     it('return true when given a real user account', (done) => {
@@ -50,7 +51,6 @@ describe('qUser', () => {
         }).catch(e => { throw e })
       }
     })
-
 
     it('returns false for a fake account', (done) => {
       subject.realUser({username: accts.fake[INDEX]})
