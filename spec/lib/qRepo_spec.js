@@ -3,7 +3,7 @@ const subject = require('../../lib/qRepo')
 const INDEX = 1
 
 const repos = {
-  real: ['ruby/ruby', 'chjj/compton', 'level/leveldown', 'cmars/hockeypuck', 'keybase/client'],
+  real: ['ruby/ruby', 'chjj/compton', 'level/leveldown', 'cmars/pystdf', 'keybase/client'],
   thin: ['chrisjj/trackfind', 'chjj/rocksdown', 'hschoenburg/mybitbit', 'spacebaconllc/repoman', 'akalin/gopar', 'zanderz/memcached'],
   fake: ['hschoenburg/ruby', 'fakehandshake/hockeypuck', 'hschoenburg/stellar_utils']
 

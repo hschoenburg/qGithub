@@ -9,7 +9,17 @@ const accts = {
 }
 
 describe('qUser', () => {
-  describe('realScore()', () => {
+  describe('fossScore()', () => {
+    it('returns a value of 1 for users with no contributors to their owned repos', (done) => {
+      subject.fossScore({username: 'chjj'})
+      .then(score => {
+        expect(score).toEqual(1)
+        done()
+      }).catch(e => { throw e })
+    })
+  })
+
+  describe('realUser()', () => {
     it('returns true for ALL of the real user accounts', (done) => {
       let truePromises = []
       var i = accts.real.length

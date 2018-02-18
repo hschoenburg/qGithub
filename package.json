@@ -17,6 +17,7 @@
   },
   "homepage": "https://github.com/handshakecompany/gitHubQ#readme",
   "dependencies": {
+    "@octokit/rest": "^14.0.9",
     "bounce": "^1.2.0",
     "dotenv": "^5.0.0",
     "jasmine": "^3.0.0",
