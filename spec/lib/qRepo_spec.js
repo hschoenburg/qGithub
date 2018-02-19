@@ -1,5 +1,8 @@
 const subject = require('../../lib/qRepo')
 
+// these specs are slow
+jasmine.DEFAULT_TIMEOUT_INTERVAL = 11000
+
 const INDEX = 1
 
 const repos = {

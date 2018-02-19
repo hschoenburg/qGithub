@@ -4,11 +4,16 @@ const INDEX = 0
 
 const orgs = {
   real: ['ruby', 'bcoin-org'],
-  fake: ['giftflow', 'handshakecompany']
+  fake: ['teamFake', 'handshakecompany']
 }
 
 describe('qOrg', () => {
   describe('realScore()', () => {
+    beforeEach((done) => {
+      jasmine.DEFAULT_TIMEOUT_INTERVAL = 15000
+      done()
+    })
+
     it('returns true with real org', (done) => {
       subject.realOrg(orgs.real[INDEX])
       .then(real => {

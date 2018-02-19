@@ -1,4 +1,5 @@
 const subject = require('../../lib/qUser')
+jasmine.DEFAULT_TIMEOUT_INTERVAL = 15000
 
 const INDEX = 1
 
@@ -10,8 +11,8 @@ const accts = {
 
 describe('qUser', () => {
   describe('fossScore()', () => {
-    it('returns a value of 1 for users with no contributors to their owned repos', (done) => {
-      subject.fossScore({username: 'chjj'})
+    xit('returns a value of 1 for users with no contributors to their owned repos', (done) => {
+      subject.fossScore({username: 'hschoenburg'})
       .then(score => {
         expect(score).toEqual(1)
         done()
@@ -26,14 +27,14 @@ describe('qUser', () => {
       while (i > 0) {
         i--
         var a = accts.real[i]
+        console.log(a)
         truePromises.push(subject.realUser({username: a}))
       }
 
       Promise.all(truePromises)
       .then(real => {
+        console.log(real)
         expect(real.indexOf(false)).toEqual(-1)
-        console.log('$$$')
-        // console.log(real)
         done()
       }).catch(e => { throw e })
     })
