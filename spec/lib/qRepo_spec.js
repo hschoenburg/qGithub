@@ -6,9 +6,9 @@ jasmine.DEFAULT_TIMEOUT_INTERVAL = 11000
 const INDEX = 1
 
 const repos = {
-  real: ['ruby/ruby', 'chjj/compton', 'level/leveldown', 'cmars/pystdf', 'keybase/client'],
+  real: ['ruby/ruby', 'chjj/compton', 'level/leveldown', 'cmars/pystdf', 'keybase/client', 'rails/rails', 'geekcomputers/Python', 'google/pprof'],
   thin: ['chrisjj/trackfind', 'chjj/rocksdown', 'hschoenburg/mybitbit', 'spacebaconllc/repoman', 'akalin/gopar', 'zanderz/memcached'],
-  fake: ['hschoenburg/ruby', 'fakehandshake/hockeypuck', 'hschoenburg/stellar_utils']
+  fake: ['hschoenburg/ruby', 'fakehandshake/hockeypuck', 'hschoenburg/stellar_utils', 'teamFake/notReal', 'hansjeffrey/cashmoney', 'hansjeffrey/bcoin', 'hansjeffrey/fakeshit']
 
 }
 

@@ -3,7 +3,7 @@ const subject = require('../../lib/qOrg')
 const INDEX = 0
 
 const orgs = {
-  real: ['ruby', 'bcoin-org'],
+  real: ['ruby', 'bcoin-org', 'google'],
   fake: ['teamFake', 'handshakecompany']
 }
 
