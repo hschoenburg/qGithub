@@ -13,6 +13,10 @@ const accts = {
 
 }
 
+const sample = {
+  real: ['hschoenburg', 'mandatoryprogrammer', 'pzb', 'k0kubun', 'nfultz', 'nobu', 'cmars']
+}
+
 describe('qUser', () => {
   describe('fakeCheck()', () => {
     it('returns false for a set of fake users', (done) => {
@@ -31,12 +35,12 @@ describe('qUser', () => {
       })
     })
   })
-  describe('fullUserScore()', () => {
+  describe('fossScore()', () => {
     beforeEach(done => {
       helper.sleep(1000).then(() => { done() })
     })
 
-    xit('returns a value grater than 20', (done) => {
+    it('returns a value grater than 20', (done) => {
       subject.fossScore({username: 'hschoenburg'})
       .then(score => {
         expect(score).toBeGreaterThan(20)
@@ -44,12 +48,12 @@ describe('qUser', () => {
       }).catch(e => { throw e })
     })
 
-    xit('for top users it returns generally accurate scores', (done) => {
+    it('for top users it returns generally accurate scores', (done) => {
       let truePromises = []
-      var i = accts.real.length
+      var i = sample.real.length
       while (i > 0) {
         i--
-        var a = accts.real[i]
+        var a = sample.real[i]
         truePromises.push(subject.fossScore({username: a}))
       }
 
@@ -60,7 +64,7 @@ describe('qUser', () => {
       }).catch(e => { throw e })
     })
 
-    xit('return true when given a real user account', (done) => {
+    it('return true when given a real user account', (done) => {
       subject.realUser({username: 'buoyad'})
       .then(real => {
         expect(real).toEqual(true)
