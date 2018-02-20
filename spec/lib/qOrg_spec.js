@@ -1,6 +1,7 @@
 const subject = require('../../lib/qOrg')
 
 const INDEX = 0
+jasmine.DEFAULT_TIMEOUT_INTERVAL = 60000
 
 const orgs = {
   real: ['ruby', 'bcoin-org', 'google'],
@@ -8,7 +9,7 @@ const orgs = {
 }
 
 describe('qOrg', () => {
-  describe('realScore()', () => {
+  describe('realOrg()', () => {
     beforeEach((done) => {
       jasmine.DEFAULT_TIMEOUT_INTERVAL = 15000
       done()
@@ -17,7 +18,7 @@ describe('qOrg', () => {
     it('returns true with real org', (done) => {
       subject.realOrg(orgs.real[INDEX])
       .then(real => {
-        expect(real).toBe(true)
+        expect(real.pass).toBe(true)
         done()
       })
     })
@@ -32,7 +33,8 @@ describe('qOrg', () => {
       }
       Promise.all(promises)
       .then(real => {
-        expect(real.indexOf(false)).toEqual(-1)
+        let passes = real.map(r => { return r.pass })
+        expect(passes.indexOf(false)).toEqual(-1)
         done()
       }).catch(e => { throw e })
     })
@@ -40,7 +42,7 @@ describe('qOrg', () => {
     it('returns false with a fake org', (done) => {
       subject.realOrg(orgs.fake[INDEX])
       .then(fake => {
-        expect(fake).toBe(false)
+        expect(fake.pass).toBe(false)
         done()
       })
     })
@@ -55,7 +57,8 @@ describe('qOrg', () => {
       }
       Promise.all(promises)
       .then(fake => {
-        expect(fake.indexOf(true)).toEqual(-1)
+        let passes = fake.map(r => { return r.pass })
+        expect(passes.indexOf(true)).toEqual(-1)
         done()
       }).catch(e => { throw e })
     })

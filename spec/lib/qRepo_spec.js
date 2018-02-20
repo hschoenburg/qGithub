@@ -1,14 +1,14 @@
 const subject = require('../../lib/qRepo')
 
 // these specs are slow
-jasmine.DEFAULT_TIMEOUT_INTERVAL = 11000
+jasmine.DEFAULT_TIMEOUT_INTERVAL = 30000
 
 const INDEX = 1
 
 const repos = {
   real: ['ruby/ruby', 'chjj/compton', 'level/leveldown', 'cmars/pystdf', 'keybase/client', 'rails/rails', 'geekcomputers/Python', 'google/pprof'],
   thin: ['chrisjj/trackfind', 'chjj/rocksdown', 'hschoenburg/mybitbit', 'spacebaconllc/repoman', 'akalin/gopar', 'zanderz/memcached'],
-  fake: ['hschoenburg/ruby', 'fakehandshake/hockeypuck', 'hschoenburg/stellar_utils', 'teamFake/notReal', 'hansjeffrey/cashmoney', 'hansjeffrey/bcoin', 'hansjeffrey/fakeshit']
+  fake: ['hschoenburg/ruby', 'fakehandshake/hockeypuck', 'hschoenburg/stellar_utils', 'teamFake/notReal', 'hansjeffrey/cashmoney', 'hansjeffrey/bcoin', 'hansjeffrey/fakeshit', 'kirazara/openvpn', 'hanschencodes/json']
 
 }
 
@@ -17,7 +17,7 @@ describe('qRepo', () => {
     it('returns true with real repo', (done) => {
       subject.realRepo(repos.real[INDEX])
       .then(real => {
-        expect(real).toBe(true)
+        expect(real.pass).toBe(true)
         done()
       })
     })
@@ -32,7 +32,8 @@ describe('qRepo', () => {
       }
       Promise.all(promises)
       .then(real => {
-        expect(real.indexOf(false)).toEqual(-1)
+        let passes = real.map(r => { return r.pass })
+        expect(passes.indexOf(false)).toEqual(-1)
         done()
       }).catch(e => { throw e })
     })
@@ -40,7 +41,7 @@ describe('qRepo', () => {
     it('returns false with a thin repo', (done) => {
       subject.realRepo(repos.thin[INDEX])
       .then(thin => {
-        expect(thin).toBe(false)
+        expect(thin.pass).toBe(false)
         done()
       })
       done()
@@ -56,7 +57,8 @@ describe('qRepo', () => {
       }
       Promise.all(promises)
       .then(thin => {
-        expect(thin.indexOf(true)).toEqual(-1)
+        let passes = thin.map(r => { return r.pass })
+        expect(passes.indexOf(true)).toEqual(-1)
         done()
       }).catch(e => { throw e })
     })
@@ -64,12 +66,12 @@ describe('qRepo', () => {
     it('returns false with a fake repo', (done) => {
       subject.realRepo(repos.fake[INDEX])
       .then(fake => {
-        expect(fake).toBe(false)
+        expect(fake.pass).toBe(false)
         done()
       })
     })
 
-    it('returns false for ALL of the fake repos', (done) => {
+    it('RETURNs false for ALL of the fake repos', (done) => {
       var i = repos.fake.length
       var promises = []
       while (i > 0) {
@@ -79,8 +81,9 @@ describe('qRepo', () => {
       }
       Promise.all(promises)
       .then(fake => {
-        console.log(fake)
-        expect(fake.indexOf(true)).toEqual(-1)
+        let passes = fake.map(r => { return r.pass })
+        expect(passes.indexOf(true)).toEqual(-1)
+        done()
         done()
       }).catch(e => { throw e })
     })
