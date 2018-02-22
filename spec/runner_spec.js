@@ -28,6 +28,7 @@ describe('start', () => {
         return db.query(check)
       }).then(result => {
         expect(result.rows[0].status).toEqual('completed')
+        expect(result.rows[0].foss_score).toEqual(Number(passingFossScore))
         expect(tokenServer.redeemQualification).toHaveBeenCalled()
         done()
       }).catch(e => { throw e })
@@ -51,6 +52,7 @@ describe('start', () => {
         return db.query(check)
       }).then(result => {
         expect(result.rows[0].status).toEqual('reviewed')
+        expect(result.rows[0].real_score).toEqual(Number(passingScore))
         expect(tokenServer.redeemQualification).not.toHaveBeenCalled()
         expect(qUser.fossScore).toHaveBeenCalled()
         done()
@@ -68,14 +70,14 @@ describe('start', () => {
       })
     })
 
-    it('updates the job status to completed and calls tokenServer', (done) => {
+    it('updates the job status to rejected and does not run fossScore', (done) => {
       subject.start()
       .then(finished => {
         const check = 'SELECT * FROM jobs'
         return db.query(check)
       }).then(result => {
         expect(result.rows[0].status).toEqual('rejected')
-        expect(result.rows[0].real_score).toEqual(failingScore)
+        expect(result.rows[0].real_score).toEqual(Number(failingScore))
         expect(result.rows[0].foss_score).toEqual(null)
         expect(qUser.fossScore).not.toHaveBeenCalled()
         expect(tokenServer.redeemQualification).not.toHaveBeenCalled()

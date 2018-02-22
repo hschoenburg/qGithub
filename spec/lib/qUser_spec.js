@@ -34,6 +34,14 @@ describe('qUser', () => {
         done()
       })
     })
+
+    it('returns true for a single real user', (done) => {
+      subject.fakeCheck(['chjj', 'pzb'])
+      .then(result => {
+        expect(result).toBe(true)
+        done()
+      })
+    })
   })
   describe('fossScore()', () => {
     beforeEach(done => {

@@ -9,11 +9,14 @@ const tokenServer = require('./handshake/token_server')
 const logger = require('./handshake/logger')
 
 async function start () {
+  console.log('running loopppp!')
   let jobs = await getJobs()
   let running = []
   if (jobs.length === 0) {
+    console.log('no jobs!')
     return true
   } else {
+    console.log('jobs! ' + jobs.length)
     jobs.forEach(j => {
       running.push(qGithub(j))
     })
