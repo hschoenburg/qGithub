@@ -1,0 +1,10 @@
+{
+  "url": "https://api.github.com/organizations/1342004/repos?page=31",
+  "method": "get",
+  "headers": {
+    "accept": "application/vnd.github.v3+json",
+    "user-agent": "hschoenburg",
+    "authorization": "token 6d85f25f793ecac0e9d7e840300417002cc052e4"
+  },
+  "body": ""
+}

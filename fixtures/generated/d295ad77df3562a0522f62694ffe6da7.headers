@@ -1,0 +1,45 @@
+{
+  "statusCode": 200,
+  "headers": {
+    "date": "Fri, 23 Feb 2018 02:14:18 GMT",
+    "content-type": "application/json; charset=utf-8",
+    "content-length": "167005",
+    "server": "GitHub.com",
+    "status": "200 OK",
+    "x-ratelimit-limit": "5000",
+    "x-ratelimit-remaining": "4846",
+    "x-ratelimit-reset": "1519354566",
+    "cache-control": "private, max-age=60, s-maxage=60",
+    "vary": "Accept, Authorization, Cookie, X-GitHub-OTP, Accept-Encoding",
+    "etag": "\"f26cef160b0107c2977f420044b15dca\"",
+    "last-modified": "Thu, 22 Feb 2018 21:21:10 GMT",
+    "x-poll-interval": "60",
+    "x-oauth-scopes": "read:org, read:user",
+    "x-accepted-oauth-scopes": "",
+    "x-oauth-client-id": "f0c6aae8041ebf57e1ed",
+    "x-github-media-type": "github.v3",
+    "link": "<https://api.github.com/organizations/17676391/events?page=2>; rel=\"next\", <https://api.github.com/organizations/17676391/events?page=10>; rel=\"last\"",
+    "access-control-expose-headers": "ETag, Link, Retry-After, X-GitHub-OTP, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Reset, X-OAuth-Scopes, X-Accepted-OAuth-Scopes, X-Poll-Interval",
+    "access-control-allow-origin": "*",
+    "content-security-policy": "default-src 'none'",
+    "strict-transport-security": "max-age=31536000; includeSubdomains; preload",
+    "x-content-type-options": "nosniff",
+    "x-frame-options": "deny",
+    "x-xss-protection": "1; mode=block",
+    "x-runtime-rack": "0.204859",
+    "x-github-request-id": "FC52:10D01:4E5EED:5D6376:5A8F78FA"
+  },
+  "url": "https://api.github.com:443/orgs/bcoin-org/events",
+  "time": 965,
+  "request": {
+    "method": "GET",
+    "headers": {
+      "gccept": "application/json",
+      "Content-Type": "application/json",
+      "Authorization": "token 6d85f25f793ecac0e9d7e840300417002cc052e4",
+      "User-Agent": "hschoenburg",
+      "host": "api.github.com",
+      "accept": "application/json"
+    }
+  }
+}

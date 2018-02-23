@@ -1,0 +1,40 @@
+{
+  "statusCode": 200,
+  "headers": {
+    "date": "Fri, 23 Feb 2018 02:14:44 GMT",
+    "content-type": "application/json; charset=utf-8",
+    "content-length": "145647",
+    "server": "GitHub.com",
+    "status": "200 OK",
+    "x-ratelimit-limit": "5000",
+    "x-ratelimit-remaining": "4804",
+    "x-ratelimit-reset": "1519354566",
+    "cache-control": "private, max-age=60, s-maxage=60",
+    "vary": "Accept, Authorization, Cookie, X-GitHub-OTP, Accept-Encoding",
+    "etag": "\"62ff0e9297722706db457ed3c2ef41cf\"",
+    "x-oauth-scopes": "read:org, read:user",
+    "x-accepted-oauth-scopes": "",
+    "x-oauth-client-id": "f0c6aae8041ebf57e1ed",
+    "x-github-media-type": "github.v3; format=json",
+    "link": "<https://api.github.com/organizations/1342004/repos?page=33>; rel=\"prev\", <https://api.github.com/organizations/1342004/repos?page=35>; rel=\"next\", <https://api.github.com/organizations/1342004/repos?page=41>; rel=\"last\", <https://api.github.com/organizations/1342004/repos?page=1>; rel=\"first\"",
+    "access-control-expose-headers": "ETag, Link, Retry-After, X-GitHub-OTP, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Reset, X-OAuth-Scopes, X-Accepted-OAuth-Scopes, X-Poll-Interval",
+    "access-control-allow-origin": "*",
+    "content-security-policy": "default-src 'none'",
+    "strict-transport-security": "max-age=31536000; includeSubdomains; preload",
+    "x-content-type-options": "nosniff",
+    "x-frame-options": "deny",
+    "x-xss-protection": "1; mode=block",
+    "x-runtime-rack": "0.200068",
+    "x-github-request-id": "FC82:10CFF:2D1639:34DDB6:5A8F7914"
+  },
+  "url": "https://api.github.com/organizations/1342004/repos?page=34",
+  "time": 1779,
+  "request": {
+    "method": "get",
+    "headers": {
+      "accept": "application/vnd.github.v3+json",
+      "user-agent": "hschoenburg",
+      "authorization": "token 6d85f25f793ecac0e9d7e840300417002cc052e4"
+    }
+  }
+}

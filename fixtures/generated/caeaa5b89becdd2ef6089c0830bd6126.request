@@ -1,0 +1,12 @@
+{
+  "url": "https://api.github.com:443/repos/hschoenburg/stellar_utils/events",
+  "method": "GET",
+  "headers": {
+    "Accept": "application/json",
+    "Content-Type": "application/json",
+    "Authorization": "token 6d85f25f793ecac0e9d7e840300417002cc052e4",
+    "User-Agent": "hschoenburg",
+    "host": "api.github.com"
+  },
+  "body": ""
+}

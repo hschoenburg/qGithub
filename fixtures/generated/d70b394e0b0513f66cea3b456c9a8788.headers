@@ -1,0 +1,42 @@
+{
+  "statusCode": 200,
+  "headers": {
+    "date": "Fri, 23 Feb 2018 01:13:59 GMT",
+    "content-type": "application/json; charset=utf-8",
+    "content-length": "5617",
+    "server": "GitHub.com",
+    "status": "200 OK",
+    "x-ratelimit-limit": "5000",
+    "x-ratelimit-remaining": "4892",
+    "x-ratelimit-reset": "1519350920",
+    "cache-control": "private, max-age=60, s-maxage=60",
+    "vary": "Accept, Authorization, Cookie, X-GitHub-OTP, Accept-Encoding",
+    "etag": "\"3097ea0d3e3b875e2b1575847bb3b5cd\"",
+    "last-modified": "Thu, 08 Feb 2018 23:21:17 GMT",
+    "x-oauth-scopes": "read:org, read:user",
+    "x-accepted-oauth-scopes": "repo",
+    "x-oauth-client-id": "f0c6aae8041ebf57e1ed",
+    "x-github-media-type": "github.v3",
+    "access-control-expose-headers": "ETag, Link, Retry-After, X-GitHub-OTP, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Reset, X-OAuth-Scopes, X-Accepted-OAuth-Scopes, X-Poll-Interval",
+    "access-control-allow-origin": "*",
+    "content-security-policy": "default-src 'none'",
+    "strict-transport-security": "max-age=31536000; includeSubdomains; preload",
+    "x-content-type-options": "nosniff",
+    "x-frame-options": "deny",
+    "x-xss-protection": "1; mode=block",
+    "x-runtime-rack": "0.045994",
+    "x-github-request-id": "F961:10CFA:D0AE:10143:5A8F6AD7"
+  },
+  "url": "https://api.github.com:443/repos/level/leveldown",
+  "time": 270,
+  "request": {
+    "method": "GET",
+    "headers": {
+      "Accept": "application/json",
+      "Content-Type": "application/json",
+      "Authorization": "token 6d85f25f793ecac0e9d7e840300417002cc052e4",
+      "User-Agent": "hschoenburg",
+      "host": "api.github.com"
+    }
+  }
+}

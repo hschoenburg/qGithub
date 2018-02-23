@@ -1,0 +1,10 @@
+{
+  "url": "https://api.github.com/orgs/bcoin-org/repos",
+  "method": "get",
+  "headers": {
+    "user-agent": "hschoenburg",
+    "accept": "application/vnd.github.v3+json",
+    "authorization": "token 6d85f25f793ecac0e9d7e840300417002cc052e4"
+  },
+  "body": ""
+}

@@ -41,7 +41,6 @@ describe('qRepo', () => {
     })
 
     it('returns false with a thin repo', (done) => {
-
       subject.realRepo(repos.thin[INDEX])
       .then(thin => {
         expect(thin.pass).toBe(false)

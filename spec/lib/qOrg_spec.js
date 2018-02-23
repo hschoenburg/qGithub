@@ -1,4 +1,6 @@
-const subject = require('../../lib/qOrg')
+const Org = require('../../lib/qOrg')
+
+const subject = new Org({token: process.env.TEST_TOKEN})
 
 const INDEX = 0
 jasmine.DEFAULT_TIMEOUT_INTERVAL = 60000
@@ -10,11 +12,6 @@ const orgs = {
 
 describe('qOrg', () => {
   describe('realOrg()', () => {
-    beforeEach((done) => {
-      jasmine.DEFAULT_TIMEOUT_INTERVAL = 15000
-      done()
-    })
-
     it('returns true with real org', (done) => {
       subject.realOrg(orgs.real[INDEX])
       .then(real => {
