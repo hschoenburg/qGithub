@@ -1,4 +1,6 @@
-const subject = require('../../lib/qRepo')
+const Repo = require('../../lib/qRepo')
+
+const subject = new Repo({token: process.env.TEST_TOKEN})
 
 // these specs are slow
 jasmine.DEFAULT_TIMEOUT_INTERVAL = 30000
@@ -39,6 +41,7 @@ describe('qRepo', () => {
     })
 
     it('returns false with a thin repo', (done) => {
+
       subject.realRepo(repos.thin[INDEX])
       .then(thin => {
         expect(thin.pass).toBe(false)
