@@ -3,10 +3,9 @@
  */
 
 require('dotenv').config()
-const qUser = require('./lib/qUser')
+const User = require('./lib/qUser')
 const db = require('./handshake/db')
 const tokenServer = require('./handshake/token_server')
-const logger = require('./handshake/logger')
 
 async function start () {
   console.log('running loopppp!')
@@ -43,16 +42,17 @@ async function getJobs () {
  */
 
 async function qGithub (j) {
-  let real, foss
+  let foss
 
-  real = qUser.realUser({username: j.username})
+  const qUser = new User({token: j.token, username: j.username})
 
-  if (real.score < process.env.USER_SCORE_MIN) {
+  let real = await qUser.realUser({username: j.username})
+
+  if (real < process.env.USER_SCORE_MIN) {
     await rejectUser(real)
     return false
   } else {
-    foss = await qUser.fossScore({username: j.username})
-    console.log(foss)
+    foss = await qUser.scoreUser({username: j.username})
 
     if (foss > process.env.FOSS_SCORE_MIN) {
       await tokenServer.redeemQualification({code: j.qualcode, identifier: j.username, service: 'github'})

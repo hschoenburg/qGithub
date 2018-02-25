@@ -1,5 +1,6 @@
 const subject = require('../runner')
-const qUser = require('../lib/qUser')
+require('dotenv').config()
+const User = require('../lib/qUser')
 const tokenServer = require('../handshake/token_server')
 const dbHelper = require('./helpers/db_helper')
 const passingScore = process.env.USER_SCORE_MIN + 1
@@ -9,16 +10,25 @@ const failingFossScore = process.env.FOSS_SCORE_MIN - 1
 const db = require('../handshake/db')
 
 describe('start', () => {
-  let testUser = 'testMcTesty'
+  let testUser = 'hschoenburg'
+  const qUser = new User({token: process.env.TEST_TOKEN, username: testUser})
 
   describe('with a qualified user waiting in the job queue', () => {
     beforeEach(done => {
-      spyOn(qUser, 'realUser').and.returnValue({username: testUser, score: passingScore, pass: true})
-      spyOn(qUser, 'fossScore').and.returnValue(passingFossScore)
+      spyOn(qUser.prototype, 'realUser').and.returnValue({username: testUser, score: passingScore, pass: true})
+      spyOn(qUser.prototype, 'scoreUser').and.returnValue(passingFossScore)
       spyOn(tokenServer, 'redeemQualification').and.returnValue(new Promise((resolve, reject) => { resolve(true) }))
       dbHelper.seedJob({username: testUser, status: 'pending'}).then(job => {
         done()
       })
+    })
+
+    it('has a job in the queue', (done) => {
+      db.query('SELECT * FROM jobs')
+        .then(result => {
+          expect(result.rows.length).toEqual(1)
+          done()
+        })
     })
 
     it('updates the job status to completed and calls tokenServer', (done) => {

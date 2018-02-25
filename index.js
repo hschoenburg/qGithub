@@ -5,6 +5,7 @@ function runLoop (fn) {
   try {
     setTimeout(() => {
       fn().then(() => {
+        console.log('loop')
         runLoop(fn)
       })
     }, TIMEOUT)
