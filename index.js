@@ -1,5 +1,5 @@
+require('dotenv').config()
 const runner = require('./runner')
-const TIMEOUT = 10000
 
 function runLoop (fn) {
   try {
@@ -8,7 +8,7 @@ function runLoop (fn) {
         console.log('loop')
         runLoop(fn)
       })
-    }, TIMEOUT)
+    }, process.env.LOOP_TIMEOUT)
   } catch (err) {
     console.log(err)
   }
