@@ -1,17 +1,17 @@
 {
   "statusCode": 200,
   "headers": {
-    "date": "Fri, 23 Feb 2018 02:14:20 GMT",
+    "date": "Wed, 28 Feb 2018 21:37:20 GMT",
     "content-type": "application/json; charset=utf-8",
-    "content-length": "142607",
+    "content-length": "142569",
     "server": "GitHub.com",
     "status": "200 OK",
     "x-ratelimit-limit": "5000",
-    "x-ratelimit-remaining": "4840",
-    "x-ratelimit-reset": "1519354566",
+    "x-ratelimit-remaining": "4823",
+    "x-ratelimit-reset": "1519856788",
     "cache-control": "private, max-age=60, s-maxage=60",
     "vary": "Accept, Authorization, Cookie, X-GitHub-OTP, Accept-Encoding",
-    "etag": "\"636a448825bf2a38a0c45d155cd52893\"",
+    "etag": "\"a8278201513aaa1a89d4e6f7b8034378\"",
     "x-oauth-scopes": "read:org, read:user",
     "x-accepted-oauth-scopes": "",
     "x-oauth-client-id": "f0c6aae8041ebf57e1ed",
@@ -24,17 +24,17 @@
     "x-content-type-options": "nosniff",
     "x-frame-options": "deny",
     "x-xss-protection": "1; mode=block",
-    "x-runtime-rack": "0.193493",
-    "x-github-request-id": "FC59:10D01:4E5FD0:5D648D:5A8F78FB"
+    "x-runtime-rack": "0.205719",
+    "x-github-request-id": "E8DD:2DA76:153262F:195F1ED:5A972110"
   },
   "url": "https://api.github.com/orgs/bcoin-org/repos",
-  "time": 873,
+  "time": 710,
   "request": {
     "method": "get",
     "headers": {
       "user-agent": "hschoenburg",
       "accept": "application/vnd.github.v3+json",
-      "authorization": "token 6d85f25f793ecac0e9d7e840300417002cc052e4"
+      "authorization": "token f0ad9d5798ae612476e10998bbf998e595016baf"
     }
   }
 }

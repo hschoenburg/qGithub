@@ -1,11 +1,10 @@
 require('dotenv').config({path: '.env'})
 const sepia = require('sepia')
 sepia.configure({
-  verbose: true,
+  verbose: false,
   debug: true
 })
 
-process.env.VCR_MODE = 'record'
 // override with test env vars
 process.env.NODE_ENV = 'test'
 process.env.PGDATABASE = 'handshake_test'

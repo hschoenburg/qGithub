@@ -1,0 +1,39 @@
+{
+  "statusCode": 200,
+  "headers": {
+    "date": "Wed, 28 Feb 2018 22:06:38 GMT",
+    "content-type": "application/json; charset=utf-8",
+    "content-length": "2",
+    "server": "GitHub.com",
+    "status": "200 OK",
+    "x-ratelimit-limit": "5000",
+    "x-ratelimit-remaining": "4711",
+    "x-ratelimit-reset": "1519856788",
+    "cache-control": "private, max-age=60, s-maxage=60",
+    "vary": "Accept, Authorization, Cookie, X-GitHub-OTP, Accept-Encoding",
+    "etag": "\"c56a78e81b71e31054ce56c4c5373847\"",
+    "x-oauth-scopes": "read:org, read:user",
+    "x-accepted-oauth-scopes": "",
+    "x-oauth-client-id": "f0c6aae8041ebf57e1ed",
+    "x-github-media-type": "github.v3; format=json",
+    "access-control-expose-headers": "ETag, Link, Retry-After, X-GitHub-OTP, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Reset, X-OAuth-Scopes, X-Accepted-OAuth-Scopes, X-Poll-Interval",
+    "access-control-allow-origin": "*",
+    "content-security-policy": "default-src 'none'",
+    "strict-transport-security": "max-age=31536000; includeSubdomains; preload",
+    "x-content-type-options": "nosniff",
+    "x-frame-options": "deny",
+    "x-xss-protection": "1; mode=block",
+    "x-runtime-rack": "0.024156",
+    "x-github-request-id": "EA0A:2DA78:273DA66:2F6B341:5A9727EE"
+  },
+  "url": "https://api.github.com/users/malgorithms/orgs?per_page=100",
+  "time": 317,
+  "request": {
+    "method": "get",
+    "headers": {
+      "user-agent": "hschoenburg",
+      "accept": "application/vnd.github.v3+json",
+      "authorization": "token f0ad9d5798ae612476e10998bbf998e595016baf"
+    }
+  }
+}

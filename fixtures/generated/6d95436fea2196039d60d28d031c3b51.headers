@@ -1,0 +1,40 @@
+{
+  "statusCode": 200,
+  "headers": {
+    "date": "Wed, 28 Feb 2018 22:06:43 GMT",
+    "content-type": "application/json; charset=utf-8",
+    "content-length": "872",
+    "server": "GitHub.com",
+    "status": "200 OK",
+    "x-ratelimit-limit": "5000",
+    "x-ratelimit-remaining": "4643",
+    "x-ratelimit-reset": "1519856788",
+    "cache-control": "private, max-age=60, s-maxage=60",
+    "vary": "Accept, Authorization, Cookie, X-GitHub-OTP, Accept-Encoding",
+    "etag": "\"55001cc5e8d20e95fe347710ab18f0df\"",
+    "last-modified": "Fri, 12 Sep 2014 18:48:32 GMT",
+    "x-oauth-scopes": "read:org, read:user",
+    "x-accepted-oauth-scopes": "admin:org, read:org, repo, user, write:org",
+    "x-oauth-client-id": "f0c6aae8041ebf57e1ed",
+    "x-github-media-type": "github.v3; format=json",
+    "access-control-expose-headers": "ETag, Link, Retry-After, X-GitHub-OTP, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Reset, X-OAuth-Scopes, X-Accepted-OAuth-Scopes, X-Poll-Interval",
+    "access-control-allow-origin": "*",
+    "content-security-policy": "default-src 'none'",
+    "strict-transport-security": "max-age=31536000; includeSubdomains; preload",
+    "x-content-type-options": "nosniff",
+    "x-frame-options": "deny",
+    "x-xss-protection": "1; mode=block",
+    "x-runtime-rack": "0.032944",
+    "x-github-request-id": "EA46:2DA78:273DECB:2F6B886:5A9727F3"
+  },
+  "url": "https://api.github.com/orgs/Donlanes",
+  "time": 243,
+  "request": {
+    "method": "get",
+    "headers": {
+      "user-agent": "hschoenburg",
+      "accept": "application/vnd.github.v3+json",
+      "authorization": "token f0ad9d5798ae612476e10998bbf998e595016baf"
+    }
+  }
+}

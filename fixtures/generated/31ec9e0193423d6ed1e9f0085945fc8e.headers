@@ -1,0 +1,44 @@
+{
+  "statusCode": 200,
+  "headers": {
+    "date": "Thu, 01 Mar 2018 00:29:41 GMT",
+    "content-type": "application/json; charset=utf-8",
+    "content-length": "117279",
+    "server": "GitHub.com",
+    "status": "200 OK",
+    "x-ratelimit-limit": "5000",
+    "x-ratelimit-remaining": "4802",
+    "x-ratelimit-reset": "1519866003",
+    "cache-control": "private, max-age=60, s-maxage=60",
+    "vary": "Accept, Authorization, Cookie, X-GitHub-OTP, Accept-Encoding",
+    "etag": "\"eb62856b305ef67e1af071972e420a03\"",
+    "last-modified": "Wed, 28 Feb 2018 23:42:46 GMT",
+    "x-poll-interval": "60",
+    "x-oauth-scopes": "read:org, read:user",
+    "x-accepted-oauth-scopes": "",
+    "x-oauth-client-id": "f0c6aae8041ebf57e1ed",
+    "x-github-media-type": "github.v3",
+    "link": "<https://api.github.com/user/3138447/received_events?page=2>; rel=\"next\", <https://api.github.com/user/3138447/received_events?page=9>; rel=\"last\"",
+    "access-control-expose-headers": "ETag, Link, Retry-After, X-GitHub-OTP, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Reset, X-OAuth-Scopes, X-Accepted-OAuth-Scopes, X-Poll-Interval",
+    "access-control-allow-origin": "*",
+    "content-security-policy": "default-src 'none'",
+    "strict-transport-security": "max-age=31536000; includeSubdomains; preload",
+    "x-content-type-options": "nosniff",
+    "x-frame-options": "deny",
+    "x-xss-protection": "1; mode=block",
+    "x-runtime-rack": "0.141320",
+    "x-github-request-id": "F0A3:2DA78:28C85D9:31452F6:5A974975"
+  },
+  "url": "https://api.github.com:443/users/k0kubun/received_events",
+  "time": 2776,
+  "request": {
+    "method": "GET",
+    "headers": {
+      "Accept": "application/json",
+      "Content-Type": "application/json",
+      "Authorization": "token f0ad9d5798ae612476e10998bbf998e595016baf",
+      "User-Agent": "hschoenburg",
+      "host": "api.github.com"
+    }
+  }
+}

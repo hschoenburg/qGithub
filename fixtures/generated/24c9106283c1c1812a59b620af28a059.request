@@ -4,7 +4,7 @@
   "headers": {
     "gccept": "application/json",
     "Content-Type": "application/json",
-    "Authorization": "token 6d85f25f793ecac0e9d7e840300417002cc052e4",
+    "Authorization": "token f0ad9d5798ae612476e10998bbf998e595016baf",
     "User-Agent": "hschoenburg",
     "host": "api.github.com",
     "accept": "application/json"

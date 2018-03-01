@@ -1,0 +1,39 @@
+{
+  "statusCode": 404,
+  "headers": {
+    "date": "Tue, 27 Feb 2018 17:05:11 GMT",
+    "content-type": "application/json; charset=utf-8",
+    "content-length": "77",
+    "server": "GitHub.com",
+    "status": "404 Not Found",
+    "x-ratelimit-limit": "5000",
+    "x-ratelimit-remaining": "4982",
+    "x-ratelimit-reset": "1519754534",
+    "x-oauth-scopes": "read:org, read:user",
+    "x-accepted-oauth-scopes": "repo",
+    "x-oauth-client-id": "f0c6aae8041ebf57e1ed",
+    "x-github-media-type": "github.v3",
+    "access-control-expose-headers": "ETag, Link, Retry-After, X-GitHub-OTP, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Reset, X-OAuth-Scopes, X-Accepted-OAuth-Scopes, X-Poll-Interval",
+    "access-control-allow-origin": "*",
+    "content-security-policy": "default-src 'none'",
+    "strict-transport-security": "max-age=31536000; includeSubdomains; preload",
+    "x-content-type-options": "nosniff",
+    "x-frame-options": "deny",
+    "x-xss-protection": "1; mode=block",
+    "x-runtime-rack": "0.023888",
+    "x-github-request-id": "C3EA:2DA71:14606D:1801A5:5A958FC7"
+  },
+  "url": "https://api.github.com:443/orgs/async%20(params)%20=%3E%20%7B%0A%20%20%20%20let%20response%20=%20await%20octokit.orgs.getForUser(%7Busername:%20this.username%20%7D)%0A%20%20%20%20let%20data%20=%20response.data%0A%20%20%20%20while%20(this.octokit.hasNextPage(response))%20%7B%0A%20%20%20%20%20%20if%20(data.length%20%3E%2050)%20%7B%20break%20%7D%0A%20%20%20%20%20%20response%20=%20await%20this.octokit.getNextPage(response)%0A%20%20%20%20%20%20data%20=%20data.concat(response.data)%0A%20%20%20%20%7D%0A%20%20%20%20if%20(data.length%20%3E%201)%20%7B%0A%20%20%20%20%20%20//%20TODO%20make%20sure%20this%20filtering%20is%20right%0A%20%20%20%20%20%20let%20filtered%20=%20utils.filterOrgs(data)%0A%20%20%20%20%20%20let%20ranked%20=%20utils.rankOrgs(filtered)%0A%20%20%20%20%20%20let%20top%20=%20ranked.slice(0,%202)%0A%20%20%20%20%20%20return%20top%0A%20%20%20%20%7D%20else%20%7B%0A%20%20%20%20%20%20return%20[]%0A%20%20%20%20%7D%0A%20%20%7D",
+  "time": 302,
+  "request": {
+    "method": "GET",
+    "headers": {
+      "gccept": "application/json",
+      "Content-Type": "application/json",
+      "Authorization": "token f0ad9d5798ae612476e10998bbf998e595016baf",
+      "User-Agent": "hschoenburg",
+      "host": "api.github.com",
+      "accept": "application/json"
+    }
+  }
+}

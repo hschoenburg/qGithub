@@ -1,0 +1,10 @@
+{
+  "url": "https://api.github.com/user/451974/repos?page=2",
+  "method": "get",
+  "headers": {
+    "accept": "application/vnd.github.v3+json",
+    "user-agent": "hschoenburg",
+    "authorization": "token f0ad9d5798ae612476e10998bbf998e595016baf"
+  },
+  "body": ""
+}
