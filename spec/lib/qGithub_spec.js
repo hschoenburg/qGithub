@@ -4,7 +4,6 @@ const Github = require('../../lib/qGithub')
 const token = process.env.TEST_TOKEN
 jasmine.DEFAULT_TIMEOUT_INTERVAL = 10000
 
-
 const INDEX = 0
 
 const accts = {
@@ -17,14 +16,12 @@ const accts = {
   out: ['cecileboucheron']
 }
 
-describe('run()', () => {
-
+describe('score()', () => {
   describe('with a real user', () => {
-
     const subject = new Github({token: token, username: accts.real[INDEX]})
 
-    fit('returns a real score and a foss score', (done) => {
-      subject.run()
+    it('returns a real score and a foss score', (done) => {
+      subject.score()
         .then(result => {
           expect(result.real).toBeGreaterThan(Number(process.env.USER_SCORE_MIN))
           expect(result.foss).toBeGreaterThan(Number(process.env.FOSS_SCORE_MIN))
@@ -42,7 +39,7 @@ describe('run()', () => {
         i--
         var u = accts.real[i]
         const subject = new Github({token: token, username: u})
-        promises.push(subject.run())
+        promises.push(subject.score())
       }
       Promise.all(promises)
       .then(scores => {
@@ -50,15 +47,13 @@ describe('run()', () => {
         done()
       }).catch(e => { throw e })
     })
-
   })
 
   describe('with a fake user', () => {
-
     const subject = new Github({token: token, username: accts.fake[INDEX]})
 
     it('returns a real score and a foss score', (done) => {
-      subject.run()
+      subject.score()
         .then(result => {
           expect(result.real).toBeLessThan(process.env.USER_SCORE_MIN)
           expect(result.foss).toBeLessThan(process.env.FOSS_SCORE_MIN)
@@ -70,4 +65,3 @@ describe('run()', () => {
     })
   })
 })
-

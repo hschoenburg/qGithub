@@ -12,12 +12,7 @@ const accts = {
   out: ['cecileboucheron']
 }
 
-const sample = {
-  real: ['hschoenburg', 'mandatoryprogrammer', 'pzb', 'k0kubun', 'nfultz', 'nobu', 'cmars']
-}
-
 describe('qUser', () => {
-
   describe('realUser()', () => {
     it('returns true for ALL of the real user accounts', (done) => {
       let truePromises = []
