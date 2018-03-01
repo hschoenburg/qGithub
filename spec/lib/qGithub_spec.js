@@ -5,7 +5,7 @@ const token = process.env.TEST_TOKEN
 jasmine.DEFAULT_TIMEOUT_INTERVAL = 10000
 
 
-const INDEX = 1
+const INDEX = 0
 
 const accts = {
   real: ['janovergoor', 'hschoenburg', 'mandatoryprogrammer', 'pzb', 'k0kubun', 'nfultz', 'nobu', 'cmars', 'matthew-mcateer', 'maxtaco', 'malgorithms', 'jinyangli', 'akalin', 'oconnor663', 'mlsteele', 'zapu', 'buoyad', 'songgao', 'zanderz'],
@@ -23,11 +23,11 @@ describe('run()', () => {
 
     const subject = new Github({token: token, username: accts.real[INDEX]})
 
-    it('returns a real score and a foss score', (done) => {
+    fit('returns a real score and a foss score', (done) => {
       subject.run()
         .then(result => {
-          expect(result.real).toBeGreaterThan(process.env.USER_SCORE_MIN)
-          expect(result.foss).toBeGreaterThan(process.env.FOSS_SCORE_MIN)
+          expect(result.real).toBeGreaterThan(Number(process.env.USER_SCORE_MIN))
+          expect(result.foss).toBeGreaterThan(Number(process.env.FOSS_SCORE_MIN))
           done()
         }).catch(e => {
           console.log(e)
