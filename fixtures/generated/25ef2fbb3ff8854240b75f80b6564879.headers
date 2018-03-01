@@ -1,0 +1,42 @@
+{
+  "statusCode": 200,
+  "headers": {
+    "date": "Thu, 01 Mar 2018 17:07:47 GMT",
+    "content-type": "application/json; charset=utf-8",
+    "content-length": "1194",
+    "server": "GitHub.com",
+    "status": "200 OK",
+    "x-ratelimit-limit": "5000",
+    "x-ratelimit-remaining": "4692",
+    "x-ratelimit-reset": "1519927148",
+    "cache-control": "private, max-age=60, s-maxage=60",
+    "vary": "Accept, Authorization, Cookie, X-GitHub-OTP, Accept-Encoding",
+    "etag": "\"8b840913b8708a8f7bdb503623536e60\"",
+    "last-modified": "Fri, 23 Feb 2018 22:41:55 GMT",
+    "x-oauth-scopes": "read:org, read:user",
+    "x-accepted-oauth-scopes": "",
+    "x-oauth-client-id": "f0c6aae8041ebf57e1ed",
+    "x-github-media-type": "github.v3",
+    "access-control-expose-headers": "ETag, Link, Retry-After, X-GitHub-OTP, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Reset, X-OAuth-Scopes, X-Accepted-OAuth-Scopes, X-Poll-Interval",
+    "access-control-allow-origin": "*",
+    "content-security-policy": "default-src 'none'",
+    "strict-transport-security": "max-age=31536000; includeSubdomains; preload",
+    "x-content-type-options": "nosniff",
+    "x-frame-options": "deny",
+    "x-xss-protection": "1; mode=block",
+    "x-runtime-rack": "0.045514",
+    "x-github-request-id": "FCAC:2DA78:330A390:3DEFCE2:5A983362"
+  },
+  "url": "https://api.github.com:443/users/sam-falvo",
+  "time": 3109,
+  "request": {
+    "method": "GET",
+    "headers": {
+      "Accept": "application/json",
+      "Content-Type": "application/json",
+      "Authorization": "token f0ad9d5798ae612476e10998bbf998e595016baf",
+      "User-Agent": "hschoenburg",
+      "host": "api.github.com"
+    }
+  }
+}

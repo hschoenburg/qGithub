@@ -1,0 +1,42 @@
+{
+  "statusCode": 200,
+  "headers": {
+    "date": "Thu, 01 Mar 2018 17:07:43 GMT",
+    "content-type": "application/json; charset=utf-8",
+    "content-length": "1187",
+    "server": "GitHub.com",
+    "status": "200 OK",
+    "x-ratelimit-limit": "5000",
+    "x-ratelimit-remaining": "4966",
+    "x-ratelimit-reset": "1519927148",
+    "cache-control": "private, max-age=60, s-maxage=60",
+    "vary": "Accept, Authorization, Cookie, X-GitHub-OTP, Accept-Encoding",
+    "etag": "\"09e7c61776d27eb49b5bb2a368b84f37\"",
+    "last-modified": "Fri, 23 Feb 2018 04:10:13 GMT",
+    "x-oauth-scopes": "read:org, read:user",
+    "x-accepted-oauth-scopes": "",
+    "x-oauth-client-id": "f0c6aae8041ebf57e1ed",
+    "x-github-media-type": "github.v3",
+    "access-control-expose-headers": "ETag, Link, Retry-After, X-GitHub-OTP, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Reset, X-OAuth-Scopes, X-Accepted-OAuth-Scopes, X-Poll-Interval",
+    "access-control-allow-origin": "*",
+    "content-security-policy": "default-src 'none'",
+    "strict-transport-security": "max-age=31536000; includeSubdomains; preload",
+    "x-content-type-options": "nosniff",
+    "x-frame-options": "deny",
+    "x-xss-protection": "1; mode=block",
+    "x-runtime-rack": "0.046366",
+    "x-github-request-id": "FB76:2DA76:1C0BE49:21A59DE:5A98335F"
+  },
+  "url": "https://api.github.com:443/users/zQueal",
+  "time": 567,
+  "request": {
+    "method": "GET",
+    "headers": {
+      "Accept": "application/json",
+      "Content-Type": "application/json",
+      "Authorization": "token f0ad9d5798ae612476e10998bbf998e595016baf",
+      "User-Agent": "hschoenburg",
+      "host": "api.github.com"
+    }
+  }
+}

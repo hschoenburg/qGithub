@@ -1,0 +1,39 @@
+{
+  "statusCode": 200,
+  "headers": {
+    "date": "Thu, 01 Mar 2018 17:07:43 GMT",
+    "content-type": "application/json; charset=utf-8",
+    "content-length": "14225",
+    "server": "GitHub.com",
+    "status": "200 OK",
+    "x-ratelimit-limit": "5000",
+    "x-ratelimit-remaining": "4985",
+    "x-ratelimit-reset": "1519927148",
+    "cache-control": "private, max-age=60, s-maxage=60",
+    "vary": "Accept, Authorization, Cookie, X-GitHub-OTP, Accept-Encoding",
+    "etag": "\"b6c8ff5aaef34052ade635db06eab6a6\"",
+    "x-oauth-scopes": "read:org, read:user",
+    "x-accepted-oauth-scopes": "",
+    "x-oauth-client-id": "f0c6aae8041ebf57e1ed",
+    "x-github-media-type": "github.v3; format=json",
+    "access-control-expose-headers": "ETag, Link, Retry-After, X-GitHub-OTP, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Reset, X-OAuth-Scopes, X-Accepted-OAuth-Scopes, X-Poll-Interval",
+    "access-control-allow-origin": "*",
+    "content-security-policy": "default-src 'none'",
+    "strict-transport-security": "max-age=31536000; includeSubdomains; preload",
+    "x-content-type-options": "nosniff",
+    "x-frame-options": "deny",
+    "x-xss-protection": "1; mode=block",
+    "x-runtime-rack": "0.062435",
+    "x-github-request-id": "FB6B:2DA78:330A0A8:3DEF8AF:5A98335E"
+  },
+  "url": "https://api.github.com/users/hschoenburg/followers",
+  "time": 1028,
+  "request": {
+    "method": "get",
+    "headers": {
+      "user-agent": "hschoenburg",
+      "accept": "application/vnd.github.v3+json",
+      "authorization": "token f0ad9d5798ae612476e10998bbf998e595016baf"
+    }
+  }
+}

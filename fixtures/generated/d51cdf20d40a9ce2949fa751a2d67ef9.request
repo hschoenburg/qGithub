@@ -1,0 +1,10 @@
+{
+  "url": "https://api.github.com/users/hschoenburg/followers",
+  "method": "get",
+  "headers": {
+    "user-agent": "hschoenburg",
+    "accept": "application/vnd.github.v3+json",
+    "authorization": "token f0ad9d5798ae612476e10998bbf998e595016baf"
+  },
+  "body": ""
+}

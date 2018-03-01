@@ -1,0 +1,12 @@
+{
+  "url": "https://api.github.com:443/users/ikitayama",
+  "method": "GET",
+  "headers": {
+    "Accept": "application/json",
+    "Content-Type": "application/json",
+    "Authorization": "token f0ad9d5798ae612476e10998bbf998e595016baf",
+    "User-Agent": "hschoenburg",
+    "host": "api.github.com"
+  },
+  "body": ""
+}
