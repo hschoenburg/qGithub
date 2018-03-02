@@ -1,15 +1,58 @@
+require('dotenv').config({path: '.env'})
 const rp = require('request-promise')
 const logger = require('./logger')
 const Bounce = require('bounce')
+const stats = require('./stats').namespace('tokenserver_api')
+
 /*
  * Wrapper lib for communicating with the Token Server
  */
+
+function timedTokenServerCall (opts, metric, metricTags) {
+  let reqTimer = stats.timer(metric, metricTags)
+
+  // Keep track if we want to return a JSON object so that we can temporarily disable
+  // that flag. It should be disabled so that request-promise can return the raw body
+  // and statusCode for our internal logging, and only then do we convert to JSON ourselves.
+  let returnJson = !!opts.json
+  opts.json = false
+  opts.resolveWithFullResponse = true
+
+  // If using json, request-promise expects the body to be an object that can be stringified.
+  // But since we have overridden the .json flag that won't happen, so manually check that and
+  // stringify as needed.
+  if (returnJson && opts.body) {
+    opts.body = JSON.stringify(opts.body)
+    opts.headers['Content-Type'] = 'application/json'
+  }
+
+  return rp(opts)
+    .then((response) => {
+      // Ship stat metrics off before handing back the promise
+      reqTimer.tags.responsecode = response.statusCode || 0
+      reqTimer.end()
+      stats.increment('request', reqTimer.tags)
+
+      if (returnJson) {
+        let obj = null
+        try {
+          obj = JSON.parse(response.body)
+        } catch (err) {
+        }
+
+        return obj
+      } else {
+        return response.body
+      }
+    })
+}
 
 async function postQualification (params) {
   const opts = {
     method: 'POST',
     uri: process.env.TOKEN_SERVER_API + '/qualification',
     headers: {
+      'Content-Type': 'application/json',
       'X-API-TOKEN': process.env.TOKEN_SERVER_KEY
     },
     body: {
@@ -21,7 +64,10 @@ async function postQualification (params) {
   }
 
   try {
-    const response = await rp(opts)
+    const response = await timedTokenServerCall(opts, 'requesttime', {
+      job: 'qualificationpost'
+    })
+
     return {
       success: true,
       code: response.result.code,
@@ -31,7 +77,7 @@ async function postQualification (params) {
     }
   } catch (err) {
     Bounce.rethrow(err, 'system')
-    logger.error('TOKEN SERVER ERROR POST /qualification')
+    logger.error('TOKEN SERVER ERROR POST /qualification: ' + err.message)
     return {success: false, code: '', service: ''}
   }
 }
@@ -41,6 +87,7 @@ async function redeemQualification (params) {
     method: 'POST',
     uri: process.env.TOKEN_SERVER_API + '/qualification/redeem',
     headers: {
+      'Content-Type': 'application/json',
       'X-API-TOKEN': process.env.TOKEN_SERVER_KEY
     },
     body: {
@@ -53,7 +100,10 @@ async function redeemQualification (params) {
   }
 
   try {
-    const response = await rp(opts)
+    const response = await timedTokenServerCall(opts, 'requesttime', {
+      job: 'qualificationredeem'
+    })
+
     return {
       success: true,
       email: response.result.email,
@@ -62,7 +112,7 @@ async function redeemQualification (params) {
     }
   } catch (err) {
     Bounce.rethrow(err, 'system')
-    logger.error('TOKEN SERVER ERROR POST /qualification/redeem')
+    logger.error('TOKEN SERVER ERROR POST /qualification/redeem: ' + err.message)
     return {success: false, code: '', service: '', error: err}
   }
 }
@@ -72,6 +122,7 @@ async function getQualifications (params) {
     method: 'GET',
     uri: process.env.TOKEN_SERVER_API + '/qualifications',
     headers: {
+      'Content-Type': 'application/json',
       'X-API-TOKEN': process.env.TOKEN_SERVER_KEY
     },
     qs: {
@@ -80,7 +131,10 @@ async function getQualifications (params) {
     json: true
   }
   try {
-    const response = await rp(opts)
+    const response = await timedTokenServerCall(opts, 'requesttime', {
+      job: 'qualificationsget'
+    })
+
     return {
       success: true,
       email: response.result.email,
@@ -88,7 +142,7 @@ async function getQualifications (params) {
     }
   } catch (err) {
     Bounce.rethrow(err, 'system')
-    logger.error('TOKEN SERVER CONNECTION ERROR GET /qualifications')
+    logger.error('TOKEN SERVER CONNECTION ERROR GET /qualifications: ' + err.message)
     return {success: false, qualifications: [], service: '', error: err}
   }
 }
@@ -98,6 +152,7 @@ async function postPubKey (params) {
     method: 'POST',
     uri: process.env.TOKEN_SERVER_API + '/pubkey',
     headers: {
+      'Content-Type': 'application/json',
       'X-API-TOKEN': process.env.TOKEN_SERVER_KEY
     },
     body: {
@@ -109,7 +164,10 @@ async function postPubKey (params) {
   }
 
   try {
-    const response = await rp(opts)
+    const response = await timedTokenServerCall(opts, 'requesttime', {
+      job: 'pubkeyadd'
+    })
+
     return {
       success: true,
       email: response.email,
@@ -117,7 +175,7 @@ async function postPubKey (params) {
     }
   } catch (err) {
     Bounce.rethrow(err, 'system')
-    logger.error('TOKEN SERVER ERROR POST /pubkey')
+    logger.error('TOKEN SERVER ERROR POST /pubkey: ' + err.message)
     return {success: false, code: '', key: '', service: '', error: err}
   }
 }
@@ -127,6 +185,7 @@ async function getPubKey (params) {
     method: 'GET',
     uri: process.env.TOKEN_SERVER_API + '/pubkey',
     headers: {
+      'Content-Type': 'application/json',
       'X-API-TOKEN': process.env.TOKEN_SERVER_KEY
     },
     qs: {email: params.email},
@@ -134,8 +193,11 @@ async function getPubKey (params) {
   }
 
   try {
-    const response = await rp(opts)
-    if (response.success) {
+    const response = await timedTokenServerCall(opts, 'requesttime', {
+      job: 'pubkeyget'
+    })
+
+    if (response.result[0]) {
       return {
         success: true,
         key: response.result[0].key,
@@ -146,7 +208,7 @@ async function getPubKey (params) {
     }
   } catch (err) {
     Bounce.rethrow(err, 'system')
-    logger.error('TOKEN SERVER ERROR GET /pubkey')
+    logger.error('TOKEN SERVER ERROR GET /pubkey: ' + err.message)
     return {success: false, key: '', email: ''}
   }
 }
@@ -156,6 +218,7 @@ async function getStats (params) {
     method: 'GET',
     uri: process.env.TOKEN_SERVER_API + '/stat/' + params.type,
     headers: {
+      'Content-Type': 'application/json',
       'X-API-TOKEN': process.env.TOKEN_SERVER_KEY
     },
     json: true,
@@ -164,11 +227,26 @@ async function getStats (params) {
     }
   }
   try {
-    const response = rp(opts)
-    return response
+    const response = await timedTokenServerCall(opts, 'requesttime', {
+      job: 'statsget'
+    })
+
+    let stats = {
+      github: 0,
+      freenode: 0,
+      pgpwot: 0,
+      survey: 0,
+      total: 0
+    }
+    response.forEach(r => {
+      stats[r.service] += Number(r.count)
+      stats.total += Number(r.count)
+    })
+
+    return stats
   } catch (err) {
     Bounce.rethrow(err, 'system')
-    logger.error('TOKEN SERVER ERROR GET /stat')
+    logger.error('TOKEN SERVER ERROR GET /stat: ' + err.message)
     return { success: false }
   }
 }

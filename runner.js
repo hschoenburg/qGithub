@@ -21,7 +21,7 @@ async function start () {
     } else {
       console.log('jobs! ' + jobs.length)
       jobs.forEach(j => {
-        const qGithub = new Github({token: j.token, username: j.username, job_id: j.id})
+        const qGithub = new Github({token: j.token, username: j.username, job: j})
         running.push(qGithub.score())
       })
     }
@@ -34,7 +34,6 @@ async function start () {
     })
 
     let results = await Promise.all(finished)
-    console.log(results)
     return results
   } catch (err) {
     logger.error(err.message)
@@ -64,7 +63,7 @@ async function saveScore (s) {
       await reviewUser(s)
       return {username: s.username, status: 'reviewed'}
     } else if (s.foss > process.env.FOSS_SCORE_MIN) {
-      await tokenServer.redeemQualification({code: s.qualcode, identifier: s.username, service: 'github'})
+      await tokenServer.redeemQualification({code: s.job.qualcode, identifier: s.job.username, service: 'github'})
       await redeemUser(s)
       return {username: s.username, status: 'accepted'}
     } else {
@@ -80,7 +79,7 @@ async function saveScore (s) {
 async function rejectUser (s) {
   try {
     const reject = 'UPDATE jobs SET status = $1, real_score = $2, foss_score = $3 WHERE id = $4 RETURNING *'
-    let result = await db.query(reject, ['rejected', s.real, s.foss, s.job_id])
+    let result = await db.query(reject, ['rejected', s.real, s.foss, s.job.id])
     return result
   } catch (err) {
     bounce.rethrow(err, 'system')
@@ -92,7 +91,7 @@ async function rejectUser (s) {
 async function reviewUser (s) {
   try {
     const review = 'UPDATE jobs SET status = $1, real_score = $2, foss_score = $3 WHERE id = $4 RETURNING *'
-    let result = await db.query(review, ['reviewed', s.real, s.foss, s.job_id])
+    let result = await db.query(review, ['reviewed', s.real, s.foss, s.job.id])
     return result
   } catch (err) {
     bounce.rethrow(err, 'system')
@@ -104,7 +103,7 @@ async function reviewUser (s) {
 async function redeemUser (s) {
   try {
     const redeem = 'UPDATE jobs SET status = $1, real_score = $2, foss_score = $3 WHERE id = $4 RETURNING *'
-    let result = await db.query(redeem, ['completed', s.real, s.foss, s.job_id])
+    let result = await db.query(redeem, ['completed', s.real, s.foss, s.job.id])
     return result
   } catch (err) {
     bounce.rethrow(err, 'system')
