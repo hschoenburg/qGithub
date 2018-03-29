@@ -9,6 +9,7 @@ const tokenServer = require('./handshake/token_server')
 const Github = require('./lib/qGithub')
 const bounce = require('bounce')
 
+
 async function start () {
   try {
     console.log('running loopppp!')
@@ -54,18 +55,20 @@ async function getJobs () {
 
 async function saveScore (s) {
   try {
-    console.log(s)
+    var result
 
     if (s.real < process.env.USER_SCORE_MIN) {
-      await rejectUser(s)
+      result = await rejectUser(s)
       return {username: s.username, status: 'rejected'}
     } else if (s.foss < process.env.FOSS_SCORE_MIN) {
-      await reviewUser(s)
+      result = await reviewUser(s)
       return {username: s.username, status: 'reviewed'}
     } else if (s.foss > process.env.FOSS_SCORE_MIN) {
-      await tokenServer.redeemQualification({code: s.job.qualcode, identifier: s.job.username, service: 'github'})
-      await redeemUser(s)
-      return {username: s.username, status: 'accepted'}
+      result = await redeemUser(s)
+      if(process.env.AUTO_APPROVE === 'true') {
+        await tokenServer.redeemQualification({code: s.job.qualcode, identifier: s.job.username, service: 'github'})
+      }
+      return result.rows[0]
     } else {
       return false
     }
