@@ -64,8 +64,9 @@ async function saveScore (s) {
       result = await reviewUser(s)
       return {username: s.username, status: 'reviewed'}
     } else if (s.foss > process.env.FOSS_SCORE_MIN) {
-      result = await redeemUser(s)
+      result = await reviewUser(s)
       if(process.env.AUTO_APPROVE === 'true') {
+        result = await redeemUser(s)
         await tokenServer.redeemQualification({code: s.job.qualcode, identifier: s.job.username, service: 'github'})
       }
       return result.rows[0]

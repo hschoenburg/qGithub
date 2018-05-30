@@ -8,7 +8,7 @@ const db = require('../handshake/db')
 
 describe('start', () => {
   let qualifiedUser = 'chjj'
-  let realUser = 'josephpoon'
+  let realUser = 'willzeng'
   let fakeUser = 'fakehandshake'
 
   describe('with a qualified user waiting in the job queue', () => {
@@ -34,7 +34,7 @@ describe('start', () => {
         const check = 'SELECT * FROM jobs'
         return db.query(check)
       }).then(result => {
-        expect(result.rows[0].status).toEqual('completed')
+        expect(result.rows[0].status).toEqual('reviewed')
         expect(result.rows[0].foss_score).toBeGreaterThan(passingFossScore)
         expect(tokenServer.redeemQualification).toHaveBeenCalled()
         done()
@@ -48,7 +48,7 @@ describe('start', () => {
         const check = 'SELECT * FROM jobs'
         return db.query(check)
       }).then(result => {
-        expect(result.rows[0].status).toEqual('completed')
+        expect(result.rows[0].status).toEqual('reviewed')
         expect(result.rows[0].foss_score).toBeGreaterThan(passingFossScore)
         expect(tokenServer.redeemQualification).not.toHaveBeenCalled()
         done()

@@ -1,0 +1,36 @@
+{
+  "statusCode": 401,
+  "headers": {
+    "date": "Thu, 29 Mar 2018 21:24:46 GMT",
+    "content-type": "application/json; charset=utf-8",
+    "content-length": "83",
+    "server": "GitHub.com",
+    "status": "401 Unauthorized",
+    "x-github-media-type": "github.v3",
+    "x-ratelimit-limit": "60",
+    "x-ratelimit-remaining": "59",
+    "x-ratelimit-reset": "1522362286",
+    "access-control-expose-headers": "ETag, Link, Retry-After, X-GitHub-OTP, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Reset, X-OAuth-Scopes, X-Accepted-OAuth-Scopes, X-Poll-Interval",
+    "access-control-allow-origin": "*",
+    "strict-transport-security": "max-age=31536000; includeSubdomains; preload",
+    "x-frame-options": "deny",
+    "x-content-type-options": "nosniff",
+    "x-xss-protection": "1; mode=block",
+    "referrer-policy": "origin-when-cross-origin, strict-origin-when-cross-origin",
+    "content-security-policy": "default-src 'none'",
+    "x-runtime-rack": "0.014522",
+    "x-github-request-id": "C885:25FE:144B46E:18F4B8E:5ABD599E"
+  },
+  "url": "https://api.github.com:443/users/willzeng",
+  "time": 442,
+  "request": {
+    "method": "GET",
+    "headers": {
+      "Accept": "application/json",
+      "Content-Type": "application/json",
+      "Authorization": "token f0ad9d5798ae612476e10998bbf998e595016baf",
+      "User-Agent": "hschoenburg",
+      "host": "api.github.com"
+    }
+  }
+}
