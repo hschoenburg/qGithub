@@ -58,8 +58,8 @@ async function saveScore (s) {
     var result
 
     if (s.real < process.env.USER_SCORE_MIN) {
-      result = await rejectUser(s)
-      return {username: s.username, status: 'rejected'}
+      result = await reviewUser(s)
+      return {username: s.username, status: 'reviewed'}
     } else if (s.foss < process.env.FOSS_SCORE_MIN) {
       result = await reviewUser(s)
       return {username: s.username, status: 'reviewed'}
