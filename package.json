@@ -24,7 +24,7 @@
     "jasmine": "^3.0.0",
     "moment": "^2.20.1",
     "pg": "^7.4.1",
-    "request": "^2.83.0",
+    "request": "^2.87.0",
     "request-promise": "^4.2.2",
     "sepia": "^2.0.2",
     "statsd-client": "^0.4.2",
