@@ -55,10 +55,12 @@ async function getJobs () {
 
 async function saveScore (s) {
   try {
+
+    return await reviewUser(s)
+      /*
     var result
 
     if (s.real < process.env.USER_SCORE_MIN) {
-      result = await reviewUser(s)
       return {username: s.username, status: 'reviewed'}
     } else if (s.foss < process.env.FOSS_SCORE_MIN) {
       result = await reviewUser(s)
@@ -72,7 +74,7 @@ async function saveScore (s) {
       return result.rows[0]
     } else {
       return false
-    }
+  */
   } catch (err) {
     bounce.rethrow(err, 'system')
     logger.error(err.message)
