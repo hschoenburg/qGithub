@@ -44,7 +44,7 @@ async function start () {
 
 async function getJobs () {
   try {
-    const lookup = 'SELECT * FROM jobs where status = $1 limit 5;'
+    const lookup = 'SELECT * FROM jobs where status = $1 order by created_at desc limit 5;'
     const result = await db.query(lookup, ['pending'])
     return result.rows
   } catch (err) {
