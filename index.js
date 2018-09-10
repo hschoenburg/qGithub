@@ -13,5 +13,4 @@ function runLoop (fn) {
     console.log(err)
   }
 }
-//runLoop(runner.start)
-console.log('temp disabled')
+runLoop(runner.start)
