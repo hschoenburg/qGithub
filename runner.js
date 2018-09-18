@@ -44,8 +44,8 @@ async function start () {
 
 async function getJobs () {
   try {
-    const lookup = 'SELECT * FROM jobs where status = $1 order by created_at desc limit 5;'
-    const result = await db.query(lookup, ['pending'])
+    const lookup = 'SELECT * FROM jobs where foss_score is null order by created_at desc limit 5;'
+    const result = await db.query(lookup)
     return result.rows
   } catch (err) {
     logger.error(err.message)
