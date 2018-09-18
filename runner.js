@@ -96,8 +96,8 @@ async function rejectUser (s) {
 
 async function reviewUser (s) {
   try {
-    const review = 'UPDATE jobs SET status = $1, real_score = $2, foss_score = $3 WHERE id = $4 RETURNING *'
-    let result = await db.query(review, ['reviewed', s.real, s.foss, s.job.id])
+    const review = 'UPDATE jobs SET real_score = $1, foss_score = $2 WHERE id = $3 RETURNING *'
+    let result = await db.query(review, [s.real, s.foss, s.job.id])
     return result
   } catch (err) {
     bounce.rethrow(err, 'system')
