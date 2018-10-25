@@ -1,33 +1,31 @@
 {
-  "name": "githubq",
+  "name": "qGithub",
   "version": "1.0.0",
-  "description": "",
+  "description": "simple library for determining the authenticity of a Github profile",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
+    "test": "./node_modules/.bin/jasmine",
     "start": "node index.js"
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/handshakecompany/gitHubQ.git"
+    "url": "git+https://github.com/handshake-org/qGitHub.git"
   },
   "author": "Hans Schoenburg",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/handshakecompany/gitHubQ/issues"
+    "url": "https://github.com/handshake-org/qGithub/issues"
   },
-  "homepage": "https://github.com/handshakecompany/gitHubQ#readme",
+  "homepage": "https://github.com/handshake-org/qGithub/#readme",
   "dependencies": {
     "@octokit/rest": "^14.0.9",
     "bounce": "^1.2.0",
     "dotenv": "^5.0.1",
     "jasmine": "^3.2.0",
     "moment": "^2.22.2",
-    "pg": "^7.4.3",
     "request": "^2.88.0",
     "request-promise": "^4.2.2",
     "sepia": "^2.0.2",
-    "statsd-client": "^0.4.2",
     "winston": "^3.1.0"
   },
   "standard": {

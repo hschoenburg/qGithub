@@ -7,13 +7,9 @@ jasmine.DEFAULT_TIMEOUT_INTERVAL = 10000
 const INDEX = 0
 
 const accts = {
-  real: ['janovergoor', 'hschoenburg', 'mandatoryprogrammer', 'pzb', 'k0kubun', 'nfultz', 'nobu', 'cmars', 'matthew-mcateer', 'maxtaco', 'malgorithms', 'jinyangli', 'akalin', 'oconnor663', 'mlsteele', 'zapu', 'buoyad', 'songgao', 'zanderz'],
-
-  fake: ['pringleLips', 'fakehandshake', 'chrisjj', 'josephpoon', 'hansjeffrey', 'hanschencodes', 'kirazara'],
-
-  foss: ['mandatoryprogrammer', 'k0kubun', 'nfultz', 'nobu', 'cmars', 'matthew-mcateer', 'maxtaco', 'malgorithms', 'jinyangli', 'cecileboucheron', 'oconnor663', 'mlsteele', 'zapu', 'buoyad', 'songgao', 'zanderz'],
-
-  out: ['cecileboucheron']
+  real: process.env.REAL_USERS,
+  fake: process.env.FAKE_USERS,
+  foss: process.env.FOSS_USERS
 }
 
 describe('score()', () => {
